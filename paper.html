@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const computerPlay = () => {
+            let answer = "";
+            let computer = Math.floor(Math.random()* 3 +1);
+            switch (computer) {
+                case 1:
+                    answer = answer + "rock";
+                    return answer;
+                    break;
+                case 2:
+                    answer = answer + "paper";
+                    return answer;
+                    break;
+                case 3:
+                    answer = answer + "scissor";
+                    return answer;
+                    break;
+                }
+           }
+        const game = () => {
+            let playerCounter = 0;
+            let computerCounter = 0;
+            for (let i = 0; i < 5; i++) {
+                const playerSelection = computerPlay();
+                const computerSelection = computerPlay();
+                if (playerSelection === computerSelection) {
+                    console.log(`It's a tie as ${computerSelection} is the same as ${playerSelection}`);
+                } else if (playerSelection === "rock" && computerSelection === "scissor") {
+                    console.log("Player wins because rock beats scissor");
+                    playerCounter++
+                } else if (playerSelection === "scissor" && computerSelection === "paper") {
+                    console.log("Player wins because scissor beats paper");
+                    playerCounter++
+                } else if (playerSelection === "paper" && computerSelection === "rock") {
+                    console.log("Player wins because paper beats rock");
+                    playerCounter++
+                } else {
+                    console.log(`Computer wins because ${computerSelection} beats ${playerSelection}`);
+                    computerCounter++
+                }
+            }
+            if (playerCounter == computerCounter) {
+                console.log(`It's a tie with ${playerCounter} player wins and ${computerCounter} wins`);
+            } else if (playerCounter > computerCounter) {
+                console.log(`Player wins with ${playerCounter} wins over the computer's ${computerCounter}`);
+            } else {
+                console.log(`Computer wins with ${computerCounter} wins over the player's ${playerCounter}`);
+            };
+        }
+        const playGame = () => {
+            let playerselection = prompt("Please input rock, paper or scissor").toLowerCase();
+            if (playerselection === null) {
+                return "You need to input something try again";
+            } else if (playerselection == "rock" || playerselection == "paper" || playerselection == "scissor") {
+                return compare(playerselection, computerPlay());
+            } else {
+                return "Invalid entry. Try again";
+            }
+            
+        }
+        const compare = (playerSelection, computerSelection) => {
+            if (playerSelection === computerSelection) {
+                    return `It's a tie as ${computerSelection} is the same as ${playerSelection}`
+                } else if (playerSelection === "rock" && computerSelection === "scissor") {
+                    return "Player wins because rock beats scissor"
+                } else if (playerSelection === "scissor" && computerSelection === "paper") {
+                    return "Player wins because scissor beats paper"
+                } else if (playerSelection === "paper" && computerSelection === "rock") {
+                    return "Player wins because paper beats rock"
+                } else {
+                    return `Computer wins because ${computerSelection} beats ${playerSelection}`
+                }
+
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
