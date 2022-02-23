@@ -1,0 +1,36 @@
+* {
+    background-color: black;
+    color: white;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.buttonholder {
+    display: flex;
+    flex-direction: row;
+}
+section {
+    display: flex;
+}
+#result {
+    flex-direction: column;
+}
+.play {
+    height: 50px;
+    width: 100px;
+    color: darkblue;
+    background-color: white;
+    font-size: 20px;
+}
+#tryagain {
+    display: none;
+    height: 100px;
+    width: 200px;
+}
+button:hover {
+    background-color: rgb(190, 186, 186);
+}
