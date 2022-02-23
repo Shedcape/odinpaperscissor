@@ -9,28 +9,21 @@ const computerPlay = () => {
             return "scissor";
         }
    };
-let counter = 0;
 let compWins = 0;
 let playerWins = 0;
 const playGame = (playerselection) => {
-    const result = document.createElement('p');
-    const section = document.querySelector('#result');
+    const result = document.querySelector('#result p');
     result.textContent = compare(playerselection, computerPlay());
-    section.appendChild(result);
-    counter = counter + 1;
-    document.querySelector('#counter').textContent = counter;
-    if (counter == 5) {
-        const announceWinner = document.querySelector('#winner');
-        if (playerWins == compWins) {
-            announceWinner.textContent = "It's a tie";
-        } else if (playerWins > compWins) {
-            announceWinner.textContent = `Player wins with ${playerWins} over the computer's ${compWins}`;
+    document.querySelector('#playerresult').textContent = playerWins;
+    document.querySelector('#compresult').textContent = compWins;
+    if (compWins == 5 || playerWins == 5) {
+        if (playerWins == 5) {
+            document.querySelector('#winner').textContent = "You've won. Click the button below if you want to challenge the computer for a new round";
         } else {
-            announceWinner.textContent = `Computer wins with ${compWins} over the player's ${playerWins}`
+            document.querySelector('#winner').textContent = "Game over, the computer won. Click the button below if you want to challenge the computer for a new round";
         }
         document.querySelector('.buttonholder').setAttribute('style', 'display: none');
         document.querySelector('#tryagain').setAttribute('style', 'display: block');
-        document.querySelector('#counter').textContent = '';
     }
 }
 const compare = (playerSelection, computerSelection) => {
@@ -66,10 +59,9 @@ scissor.addEventListener('click', () => {
 document.querySelector('#tryagain').addEventListener('click', () => {
     document.querySelector('.buttonholder').setAttribute('style', 'display: flex');
     document.querySelector('#tryagain').setAttribute('style', 'display: none');
-    const myNode = document.getElementById('result');
-    while (myNode.firstChild) {
-        myNode.removeChild(myNode.lastChild);
-    }
+    document.querySelector('#playerresult').textContent = '0';
+    document.querySelector('#compresult').textContent = '0';
+    document.querySelector('#result p').textContent = '';
     counter = 0;
     compWins = 0;
     playerWins = 0;

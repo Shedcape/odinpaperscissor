@@ -9,12 +9,19 @@
     align-items: center;
     flex-wrap: wrap;
 }
+.title {
+    text-align: center;
+}
 .buttonholder {
     display: flex;
     flex-direction: row;
 }
 section {
     display: flex;
+}
+.counter {
+    width: 15%;
+    justify-content: space-around;
 }
 #result {
     flex-direction: column;

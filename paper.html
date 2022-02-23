@@ -9,17 +9,23 @@
     <title>Document</title>
 </head>
 <body>
+    <h1 class="title">Rock, Paper, Scissor</h1>
+    <p class="title">Select rock, paper or scissor below</p>
     <section class="container">
         <section class="buttonholder">
             <button id="rock" class="play" value="rock">Rock</button>
             <button id="paper" class="play">Paper</button>
             <button id="scissor" class="play">Scissor</button>
         </section>
-        <section>
-            <p id="counter"></p>
-            <h2 id="winner"></p>
+        <section class="counter">
+            <p>Player: <span id="playerresult">0</span></p>
+            <p>Computer: <span id="compresult">0</span></p>
         </section>
         <section id="result">
+            <p></p>
+        </section>
+        <section>
+            <h2 id="winner"></p>
         </section>
         <button id="tryagain" class="play">Try again?</button>
     </section>  
